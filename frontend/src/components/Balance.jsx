@@ -1,19 +1,17 @@
 import React from "react";
 
 function Balance({ balanco }) {
+  const balancoFormatado = balanco.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
+
   return (
-    <div
-      style={{
-        padding: "20px",
-        border: "1px solid #ccc",
-        borderRadius: "8px",
-        marginBottom: "20px",
-      }}
-    >
-      <h3>Balanço Atual</h3>
-      <h2 style={{ color: balanco >= 0 ? "green" : "red" }}>
-        R$ {balanco.toFixed(2)}
-      </h2>
+    <div className="flex flex-col items-end">
+      <p className="text-lg font-medium text-white opacity-80 mb-1">
+        Balanço Atual
+      </p>
+      <p className="text-4xl font-extrabold text-white">{balancoFormatado}</p>
     </div>
   );
 }
